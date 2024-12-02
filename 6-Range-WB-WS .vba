@@ -8,8 +8,14 @@ Sub WorkbookWorksheetRangeDemo()
 
     Set wb = ActiveWorkbook
     
+    Set ws = ActiveSheet
+    
+    Application.DisplayAlerts = False
+    
     wb.SaveAs "C:\NewExcel\Book-Demo-Save.xlsx"
-
+    
+    Application.DisplayAlerts = True
+    
     MsgBox "Workbook is now saved!", vbInformation
     
     
