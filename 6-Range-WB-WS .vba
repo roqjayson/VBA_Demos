@@ -9,5 +9,9 @@ Sub WorkbookWorksheetRangeDemo()
     ' Create a new workbook
     Set wb = Workbooks.Add
     
+     ' Add a worksheet to the workbook
+    Set ws = wb.Sheets.Add
+    ws.Name = "DemoSheet"  ' Rename the sheet to "DemoSheet"
    
 End Sub
+
