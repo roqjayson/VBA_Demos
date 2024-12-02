@@ -21,5 +21,11 @@ Sub SimpleWorksheetOperation()
     Range("C2").Value = "Sum:"
     Range("D2").Formula = "=A2+B2"
     
+    ' Change cell background colors
+    Range("A1:D2").Interior.Color = RGB(240, 240, 240)
     
+    ' Add a comment to a cell
+    Range("A1").AddComment "This is a sample comment in VBA"
+    
+
 End Sub
