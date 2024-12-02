@@ -1,31 +1,35 @@
-Sub SimpleWorksheetOperation()
-    ' Select a specific worksheet
-    Worksheets("Sheet1").Activate
+' Procedure to write basic text and date information
+Sub WriteBasicInformation(ws As Worksheet)
+    With ws.Range("A1")
+        .Value = "Hello VBA!"
+        .Font.Color = vbBlue
+    End With
     
-    ' Write values to different cells
-    Range("A1").Value = "Hello VBA!"
-    Range("B1").Value = Date
-    Range("C1").Value = Time
+    With ws.Range("B1")
+        .Value = Date
+        .Font.Bold = True
+    End With
     
-    ' Change the font color and formatting
-    Range("A1").Font.Color = vbBlue
-    Range("B1").Font.Bold = True
-    Range("C1").Font.Italic = True
-     
-    ' Autofit the columns
-    Columns("A:C").AutoFit
-    
-    ' Add a simple calculation
-    Range("A2").Value = 10
-    Range("B2").Value = 5
-    Range("C2").Value = "Sum:"
-    Range("D2").Formula = "=A2+B2"
-    
-    ' Change cell background colors
-    Range("A1:D2").Interior.Color = RGB(240, 240, 240)
-    
-    ' Add a comment to a cell
-    Range("A1").AddComment "This is a sample comment in VBA"
-    
+    With ws.Range("C1")
+        .Value = Time
+        .Font.Italic = True
+    End With
+End Sub
 
+' Procedure to perform a basic calculation
+Sub PerformCalculation(ws As Worksheet)
+    With ws
+        .Range("A2").Value = 10
+        .Range("B2").Value = 5
+        .Range("C2").Value = "Sum:"
+        .Range("D2").Formula = "=A2+B2"
+    End With
+End Sub
+
+' Procedure to style worksheet
+Sub StyleWorksheet(ws As Worksheet)
+    With ws
+        .Columns("A:D").AutoFit
+        .Range("A1:D2").Interior.Color = RGB(240, 240, 240)
+    End With
 End Sub
