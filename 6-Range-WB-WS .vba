@@ -6,12 +6,13 @@ Sub WorkbookWorksheetRangeDemo()
     Dim rng As Range
     Dim cell As Range
 
-    Set ws = ActiveSheet
+    Set wb = ActiveWorkbook
     
-    ' Change specific cell values individually
-    ws.Cells(1, 1).value = "Header 1" ' Change cell A1
-    ws.Cells(1, 2).value = "Header 2" ' Change cell B1
-    ws.Cells(1, 3).value = "Header 3" ' Change cell C1
+    wb.SaveAs "C:\NewExcel\Book-Demo-Save.xlsx"
 
+    MsgBox "Workbook is now saved!", vbInformation
+    
+    
+    
 End Sub
 
