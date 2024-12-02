@@ -1,0 +1,47 @@
+Private Sub UserForm_Initialize()
+    ' Set default properties for the form
+    Me.Caption = "Data Entry Form"
+    Me.Width = 400
+    Me.Height = 300
+
+    ' Set labels' text
+    Label1.Caption = "Name"
+    Label2.Caption = "Age"
+    Label3.Caption = "Email"
+    
+    ' Set command button texts
+    CommandButton1.Caption = "Submit"
+    CommandButton2.Caption = "Cancel"
+End Sub
+
+Private Sub CommandButton1_Click()
+    ' When the Submit button is clicked, the data is saved to the worksheet
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("Data") ' Ensure this sheet exists
+
+    ' Find the next available row in the Data worksheet
+    Dim nextRow As Long
+    nextRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row + 1
+
+    ' Write the input data to the worksheet
+    ws.Cells(nextRow, 1).Value = TextBox1.Value ' Name
+    ws.Cells(nextRow, 2).Value = TextBox2.Value ' Age
+    ws.Cells(nextRow, 3).Value = TextBox3.Value ' Email
+
+    ' Clear the textboxes after submitting
+    TextBox1.Value = ""
+    TextBox2.Value = ""
+    TextBox3.Value = ""
+
+    ' Show a confirmation message
+    MsgBox "Data successfully added!", vbInformation
+
+    ' Close the form
+    Me.Hide
+End Sub
+
+Private Sub CommandButton2_Click()
+    ' When the Cancel button is clicked, close the form without saving
+    Me.Hide
+End Sub
+
