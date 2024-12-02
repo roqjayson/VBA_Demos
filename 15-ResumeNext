@@ -1,0 +1,28 @@
+Sub ResumeNextErrorHandling()
+
+    ' Variables declaration
+    Dim x As Integer
+    Dim y As Integer
+    Dim result As Double
+
+    ' Initializing variables
+    x = 10
+    y = 0 ' This will cause a divide-by-zero error
+
+    ' Set up error handling to resume on the next line
+    On Error Resume Next
+
+    ' Division by zero (will not stop the code)
+    result = x / y
+    Debug.Print "Result after division: " & result
+
+    ' Check if an error occurred
+    If Err.Number <> 0 Then
+        Debug.Print "An error occurred, but we continued: " & Err.Description
+    End If
+
+    ' Continue with the rest of the code
+    Debug.Print "Continuing execution..."
+
+End Sub
+
