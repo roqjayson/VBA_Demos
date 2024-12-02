@@ -5,13 +5,13 @@ Sub WorkbookWorksheetRangeDemo()
     Dim ws As Worksheet
     Dim rng As Range
     Dim cell As Range
+
+    Set ws = ActiveSheet
     
-    ' Create a new workbook
-    Set wb = Workbooks.Add
+    ' Select a range and work with it
+    Set rng = ws.Range("A1:C5")
     
-     ' Add a worksheet to the workbook
-    Set ws = wb.Sheets.Add
-    ws.Name = "DemoSheet"  ' Rename the sheet to "DemoSheet"
-   
+    ' Populate the range with data (fill A1 to C5 with some values)
+    rng.value = "Hello"
 End Sub
 
