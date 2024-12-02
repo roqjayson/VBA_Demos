@@ -8,10 +8,10 @@ Sub WorkbookWorksheetRangeDemo()
 
     Set ws = ActiveSheet
     
-    ' Select a range and work with it
-    Set rng = ws.Range("A1:C5")
-    
-    ' Populate the range with data (fill A1 to C5 with some values)
-    rng.value = "Hello"
+    ' Change specific cell values individually
+    ws.Cells(1, 1).value = "Header 1" ' Change cell A1
+    ws.Cells(1, 2).value = "Header 2" ' Change cell B1
+    ws.Cells(1, 3).value = "Header 3" ' Change cell C1
+
 End Sub
 
