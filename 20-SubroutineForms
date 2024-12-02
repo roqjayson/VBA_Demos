@@ -1,0 +1,5 @@
+Sub ShowDataInputForm()
+    ' Ensure that Data sheet exists, or create it if it doesn't
+    DataInputForm.Show
+End Sub
+
