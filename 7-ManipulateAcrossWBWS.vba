@@ -40,9 +40,9 @@ Sub CopySRC_PasteTGT()
     
     ' Save and close the workbooks
     wbTarget.Save
-    ' wbTarget.Close
+    wbTarget.Close
     wbSource.Save
-    ' wbSource.Close
+    wbSource.Close
     
     ' Notify the user
     MsgBox "Data manipulation completed across workbooks and worksheets!", vbInformation
