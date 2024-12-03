@@ -19,13 +19,9 @@ Private Sub UseForRangeCopy_ORIGINAL()
     For i = 2 To rg.Rows.Count
     
         If rg.Cells(i, 9).Value = 10 Then
-        
-            shData.Activate
-            rg.Rows(i).Select
-            Selection.Copy
-            shOutput.Activate
-            shOutput.Range("A" & row).Select
-            Selection.PasteSpecial xlPasteValues
+
+            rg.Rows(i).Copy
+            shOutput.Range("A" & row).PasteSpecial xlPasteValues
             
             row = row + 1
             
