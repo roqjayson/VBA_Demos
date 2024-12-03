@@ -20,8 +20,7 @@ Private Sub UseForRangeCopy_ORIGINAL()
     
         If rg.Cells(i, 9).Value = 10 Then
 
-            rg.Rows(i).Copy
-            shOutput.Range("A" & row).PasteSpecial xlPasteValues
+            shOutput.Range("A" & row).Resize(1, rg.Columns.Count).Value = rg.Rows(i).Value
             
             row = row + 1
             
