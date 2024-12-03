@@ -41,11 +41,15 @@ End Sub
 Sub TurnOffStuff()
 
     Application.Calculation = xlCalculationManual
+    Application.ScreenUpdating = False
+    Application.EnableEvents = False
     
 End Sub
 
 Sub TurnOnStuff()
 
     Application.Calculation = xlCalculationAutomatic
+    Application.ScreenUpdating = True
+    Application.EnableEvents = True
     
 End Sub
