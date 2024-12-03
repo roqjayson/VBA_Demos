@@ -17,3 +17,12 @@ Sub Main()
     
 
 End Sub
+
+
+Sub CreditAccount(balance As Currency, amount As Currency)
+    balance = balance + amount
+End Sub
+
+Sub DebitAccount(balance As Currency, amount As Currency)
+    balance = balance - amount
+End Sub
