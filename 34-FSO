@@ -1,0 +1,79 @@
+' Enable Microsoft Scripting Runtime
+
+
+Sub FileSys()
+
+    Dim FilSysObj As Scripting.FileSystemObject
+    Dim Drv As Drive
+    Dim Fldr As Folder
+    Dim SubFldr As Folder
+    Dim Fils As Files
+    Dim Fil As File
+    Dim FilPath As String
+    
+    ' Create new file system object
+    
+    Set FilSysObj = New Scripting.FileSystemObject
+    
+    ' Loop through all of the drives in the local
+    
+    ' For Each Drv In FilSysObj.Drives
+        ' Debug.Print "The path to this drive is: " + Drv.Path
+        ' Debug.Print "The type of drive is a:" + CStr(Drv.DriveType)
+        ' Search for drive type enum online to find out what 2 stands for
+    ' Next
+
+    ' Define a folder we want to work with
+
+    ' Set Fldr = FilSysObj.GetFolder("C:\Users\roque\Desktop\Trainosys\")
+    
+        'Loop through the subfolders
+       ' For Each SubFldr In Fldr.SubFolders
+        '    Debug.Print SubFldr.Path
+         '   Debug.Print SubFldr.Name
+          '  Debug.Print SubFldr.ParentFolder
+           ' Debug.Print SubFldr.Size
+       ' Next
+
+    ' Define a group of files
+    
+    ' Set Fldr = FilSysObj.GetFolder("C:\Users\roque\Desktop\Trainosys\SQL\SQL DB Management - 20241125-1202")
+    ' Set Fils = Fldr.Files
+    
+    ' Loop Through all of the files in folder
+    
+    ' For Each Fil In Fils
+       ' Debug.Print Fil.Name
+       ' Debug.Print Fil.Path
+       ' Debug.Print Fil.Type
+       ' Debug.Print Fil.ShortPath
+       ' Debug.Print Fil.Size
+       ' Debug.Print Fil.DateLastModified
+   ' Next
+   
+   ' Define a file
+   
+   ' FilPath = "C:\Users\roque\Desktop\Trainosys\SQL\SQL DB Management - 20241125-1202\01_reference_data.sql"
+   
+   ' Debug.Print "The file name is: " + FilSysObj.GetBaseName(FilPath)
+   ' Debug.Print "The file absolute path name is: " + FilSysObj.GetAbsolutePathName(FilPath)
+   ' Debug.Print "The file extension is: " + FilSysObj.GetExtensionName(FilPath)
+   ' Debug.Print "The file name with the extension is: " + FilSysObj.GetFileName(FilPath)
+   ' Debug.Print "The file is in Drive: " + FilSysObj.GetDriveName(FilPath)
+   ' Debug.Print "The file folder is: " + FilSysObj.GetParentFolderName(FilPath)
+
+   ' Build a new path
+    
+   ' Debug.Print FilSysObj.BuildPath("C:\Users\roque\Desktop\Trainosys\SQL\SQL DB Management - 20241125-1202\", "SomeFile.sql")
+
+   ' Grab a folder and move it or copy it
+   
+   Set Fldr = FilSysObj.GetFolder("C:\Users\roque\Desktop\Trainosys\SQL\SQL DB Management - 20241125-1202\")
+
+   ' Fldr.Copy ("C:\Users\roque\Desktop\Trainosys\") '
+   ' Fldr.Move ("C:\Users\roque\Desktop\Trainosys\") ' Permission Denied
+   
+   
+   
+
+End Sub
