@@ -9,5 +9,7 @@ Sub ReadingRange()
     For i = LBound(arr, 1) + 1 To UBound(arr, 1)
         arr(i, 2) = arr(i, 2) + 1
     Next i
+    
+    ActiveSheet.Range("E1:G6") = arr
 
-End Sub 'Add Breakpoint here
+End Sub
