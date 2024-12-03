@@ -1,4 +1,24 @@
-' Make sure to build Sheet2
+' Issue with code is if we ran it again, it will insert the data to the right
+Public Sub Main()
+    
+    Call ClearSheet
+    Call UseQueryTable
+    
+    
+End Sub
+
+Private Sub ClearSheet()
+
+    Dim ws As Worksheet
+    For Each table In Sheet2.QueryTables
+        table.Delete
+    Next table
+    
+    Sheet2.Cells.Clear
+
+End Sub
+
+
 
 Public Sub UseQueryTable()
 
@@ -11,7 +31,7 @@ Public Sub UseQueryTable()
     With table
         .WebSelectionType = xlSpecifiedTables
         .WebTables = "1"
-        .WebFormatting = xlWebFormattingAll
+        .WebFormatting = xlWebFormattingNone
         .Refresh
     End With
     
