@@ -1,10 +1,12 @@
-' Show header
+' Handle errors and close connection if errors occur
 
 Sub ReadData()
 
+    On Error GoTo ErrorHandler
+
     Dim databaseFilename As String, connectionString As String
     
-    databaseFilename = ThisWorkbook.Path & Application.PathSeparator & "Database1.accdb"
+    databaseFilename = ThisWorkbook.Path & Application.PathSeparator & "Databasess1.accdb"
     
     ' Look for the right connectionString: https://www.connectionstrings.com/
     
@@ -18,18 +20,20 @@ Sub ReadData()
     
     rs.Open query, conn
     
-    With ActiveSheet
-            .Cells.Clear
-            
-            Dim i As Long
-            For i = 0 To rs.Fields.Count - 1
-                .Range("A1").Offset(0, i).Value = rs.Fields(i).Name
-            Next i
-            
-            
-            .Range("A2").CopyFromRecordset rs
-    End With
+cleanup:
+    If Not (rs Is Nothing) Then
+        If (rs.State And adStateOpen) = adStateOpen Then rs.Close
+            Set rs = Nothing
+        End If
+    If Not (conn Is Nothing) Then
+        If (conn.State And adStateOpen) = adStateOpen Then conn.Close
+            Set conn = Nothing
+        End If
+    Exit Sub
     
-    conn.Close
+ErrorHandler:
+    MsgBox Err.Description
+    GoTo cleanup
+
 
 End Sub
