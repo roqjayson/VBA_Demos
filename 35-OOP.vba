@@ -4,10 +4,10 @@ Sub Main()
     balance = 0
     
     ' credit
-    balance = balance + 100
+    Call CreditAccount(balance, 100)
     
     ' debit
-    balance = balance - 25
+    Call DebitAccount(balance, 25)
     
     'Common issues include
     'Easy to type the static numbers wrong
