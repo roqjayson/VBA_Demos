@@ -3,6 +3,11 @@
 ' Chrome Selenium
 ' Microsoft XML Library
 
+
+' Make sure to go to Tools > References > check the following
+' Microsoft HTML Object Library
+' Microsoft XML, v6.0 (or another available version like v3.0 or v4.0 for MSXML2.XMLHTTP60).
+
 Private Sub GetHtmlFromUrl()
 
     Dim url As String
