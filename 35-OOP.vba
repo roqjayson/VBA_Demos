@@ -40,11 +40,11 @@ End Property
 'End Property
 
 Public Sub Credit(amount As Currency)
-    Balance = (m_balance + amount) + (amount * m_fees)
+    m_balance = (m_balance + amount) + (amount * m_fees)
 End Sub
 
 Public Sub Debit(amount As Currency)
-    Balance = (m_balance - amount) - (amount * m_fees)
+    m_balance = (m_balance - amount) - (amount * m_fees)
 End Sub
 
 ' Click the General at the top and change to class
@@ -53,5 +53,6 @@ Private Sub Class_Initialize()
     m_balance = 50
     m_fees = 0.05
 End Sub
+
 
 
