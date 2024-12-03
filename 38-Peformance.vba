@@ -11,6 +11,8 @@ Private Sub UseForRangeCopy_ORIGINAL()
     Dim dTime As Double
     dTime = Timer
     
+    Call TurnOffStuff
+    
     Dim rg As Range
     Set rg = shData.Range("A1").CurrentRegion
     
@@ -28,8 +30,22 @@ Private Sub UseForRangeCopy_ORIGINAL()
         
     Next i
     
+    Call TurnOnStuff
+    
     Debug.Print "Time is: " & (Timer - dTime) * 1000
         
 
 
+End Sub
+
+Sub TurnOffStuff()
+
+    Application.Calculation = xlCalculationManual
+    
+End Sub
+
+Sub TurnOnStuff()
+
+    Application.Calculation = xlCalculationAutomatic
+    
 End Sub
