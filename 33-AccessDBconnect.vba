@@ -1,4 +1,4 @@
-' Enable activex data objects
+' Show header
 
 Sub ReadData()
 
@@ -20,7 +20,14 @@ Sub ReadData()
     
     With ActiveSheet
             .Cells.Clear
-            .Range("A1").CopyFromRecordset rs
+            
+            Dim i As Long
+            For i = 0 To rs.Fields.Count - 1
+                .Range("A1").Offset(0, i).Value = rs.Fields(i).Name
+            Next i
+            
+            
+            .Range("A2").CopyFromRecordset rs
     End With
     
     conn.Close
