@@ -13,25 +13,13 @@ Private Sub UseForRangeCopy_ORIGINAL()
     
     Call TurnOffStuff
     
-    Dim arr As Variant
-    arr = shData.Range("A1").CurrentRegion.Value
+    Dim rg As Range
+    Set rg = shData.Range("A1").CurrentRegion
     
-    Dim i As Long, j As Long, row As Long
-    row = 2
-    For i = LBound(arr, 1) To UBound(arr, 1)
+    Dim criteriaRange As Range
+    Set criteriaRange = ThisWorkbook.Worksheets("AdvFilter").Range("A1").CurrentRegion
     
-        If arr(i, 9) = 10 Then
-
-            For j = LBound(arr, 2) To UBound(arr, 2)
-                shOutput.Cells(row, j).Value = arr(i, j)
-            
-            Next j
-            
-            row = row + 1
-            
-        End If
-        
-    Next i
+    rg.AdvancedFilter xlFilterCopy, criteriaRange, shOutput.Range("A1:CH1")
     
     Call TurnOnStuff
     
