@@ -1,13 +1,11 @@
-' Module1
-
 Sub Main()
 
     Dim account As New clsAccount
     
     Call account.CreditAccount(100)
     Call account.DebitAccount(25)
-    
-    Debug.Print account.balance
+    account.Balance = 999
+    Debug.Print account.Balance
 
     
 
@@ -16,36 +14,48 @@ End Sub
 ' Let's say the requirements has changed
 ' We are now required to add fees on top of the credit or debit
 
-' modAccount
 
-Sub CreditAccount(balance As Currency, fees As Double, amount As Currency)
-    balance = balance + (amount * fees)
+Sub CreditAccount(Balance As Currency, fees As Double, amount As Currency)
+    Balance = Balance + (amount * fees)
 End Sub
 
-Sub DebitAccount(balance As Currency, fees As Double, amount As Currency)
-    balance = balance - (amount * fees)
+Sub DebitAccount(Balance As Currency, fees As Double, amount As Currency)
+    Balance = Balance - (amount * fees)
 End Sub
 
 ' Create a new module here called modAccount
 
-' clsAccount
 
 Option Explicit
 
-Public balance As Currency
-Public fees As Double
+Private m_balance As Currency
+Private m_fees As Double
+
+Public Property Get Balance() As Currency
+    Balance = m_balance
+End Property
+
+' Comment this out
+
+'Public Property Let Balance(ByVal newBalance As Currency)
+ '   m_balance = newBalance
+'End Property
 
 Public Sub CreditAccount(amount As Currency)
-    balance = (balance + amount) + (amount * fees)
+    Balance = (m_balance + amount) + (amount * fees)
 End Sub
 
 Public Sub DebitAccount(amount As Currency)
-    balance = (balance - amount) - (amount * fees)
+    Balance = (m_balance - amount) - (amount * fees)
 End Sub
 
 ' Click the General at the top and change to class
 
 Private Sub Class_Initialize()
-    balance = 50
+    m_balance = 50
     fees = 0.05
 End Sub
+
+
+
+
