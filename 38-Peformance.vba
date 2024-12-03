@@ -13,16 +13,19 @@ Private Sub UseForRangeCopy_ORIGINAL()
     
     Call TurnOffStuff
     
-    Dim rg As Range
-    Set rg = shData.Range("A1").CurrentRegion
+    Dim arr As Variant
+    arr = shData.Range("A1").CurrentRegion.Value
     
-    Dim i As Long, row As Long
+    Dim i As Long, j As Long, row As Long
     row = 2
-    For i = 2 To rg.Rows.Count
+    For i = LBound(arr, 1) To UBound(arr, 1)
     
-        If rg.Cells(i, 9).Value = 10 Then
+        If arr(i, 9) = 10 Then
 
-            shOutput.Range("A" & row).Resize(1, rg.Columns.Count).Value = rg.Rows(i).Value
+            For j = LBound(arr, 2) To UBound(arr, 2)
+                shOutput.Cells(row, j).Value = arr(i, j)
+            
+            Next j
             
             row = row + 1
             
