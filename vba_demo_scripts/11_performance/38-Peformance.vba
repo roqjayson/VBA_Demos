@@ -1,3 +1,5 @@
+' You'll have to use Perf.xlsm to be able to utilize this script
+
 Option Explicit
 
 Private Sub UseForRangeCopy_ORIGINAL()
